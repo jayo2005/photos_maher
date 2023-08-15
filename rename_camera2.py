@@ -164,9 +164,15 @@ class App(ctk.CTk):
     def _delete_sd_files_thread(self, sd_card_path):
         for root, dirs, files in os.walk(sd_card_path, topdown=False):
             for name in files:
-                os.remove(os.path.join(root, name))
+                try:
+                    os.remove(os.path.join(root, name))
+                except Exception as e:
+                    print(f"Error deleting file {os.path.join(root, name)}: {e}")
             for name in dirs:
-                os.rmdir(os.path.join(root, name))
+                try:
+                    os.rmdir(os.path.join(root, name))
+                except Exception as e:
+                    print(f"Error deleting directory {os.path.join(root, name)}: {e}")
         messagebox.showinfo("Files Deleted", "All files and folders have been deleted from the folder.")
 
 app = App()
