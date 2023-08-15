@@ -74,7 +74,7 @@ class App(ctk.CTk):
         from PIL import Image
         from customtkinter import CTkImage
         img = Image.open("maher.png")
-        img = img.resize((800, 400))  # Resize the image to 800x400 pixels for better quality on HighDPI displays
+        img = img.resize((400, 200))  # Resize the image to 800x400 pixels for better quality on HighDPI displays
         self.logo_image = CTkImage(light_image=img, dark_image=img, size=(400, 200))
         self.logo_label = ctk.CTkLabel(self, image=self.logo_image)
         self.logo_label.grid(row=4, column=0, columnspan=4, padx=20, pady=10)
