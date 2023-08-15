@@ -77,7 +77,7 @@ class App(ctk.CTk):
 
     def browse_folder(self):
         global base_folder_path
-        base_folder_path = filedialog.askdirectory()
+        base_folder_path = filedialog.askdirectory(initialdir="Z:\\")
         self.property_name_entry.delete(0, tk.END)
         self.property_name_entry.insert(0, base_folder_path)
 
