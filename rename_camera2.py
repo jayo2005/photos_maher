@@ -138,7 +138,7 @@ class App(ctk.CTk):
         global folder_path
         if response:
             if 'folder_path' in globals():
-                same issueos.startfile(folder_path)
+                os.startfile(folder_path)
             else:
                 messagebox.showerror("Error", "No folder has been created yet.")
 
