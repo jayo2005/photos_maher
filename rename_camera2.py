@@ -6,6 +6,7 @@ from PIL import Image
 import threading
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import filedialog
 
 class CustomPopup(ctk.CTkToplevel):
     def __init__(self, master, message, title, callback):
@@ -48,8 +49,11 @@ class App(ctk.CTk):
         self.property_name_label.grid(row=0, column=0, padx=20, pady=10, sticky="w")
         self.property_name_entry = ctk.CTkEntry(self, width=450)
         self.property_name_entry.grid(row=0, column=1, padx=20, pady=10, sticky="w")
+        self.browse_button = ctk.CTkButton(self, text="Browse", command=self.browse_folder)
+        self.browse_button.grid(row=0, column=2, padx=20, pady=10, sticky="ew")
+
         self.create_folder_button = ctk.CTkButton(self, text="Create Folder", command=self.create_folder)
-        self.create_folder_button.grid(row=0, column=2, padx=20, pady=10, sticky="ew")
+        self.create_folder_button.grid(row=0, column=3, padx=20, pady=10, sticky="ew")
         self.delete_sd_files_button = ctk.CTkButton(self, text="Delete SD Files", command=self.delete_sd_files)
         self.delete_sd_files_button.grid(row=0, column=3, padx=20, pady=10, sticky="ew")
 
@@ -71,10 +75,16 @@ class App(ctk.CTk):
         y = (screen_height / 2) - (250 / 2)
         self.geometry(f"+{int(x)}+{int(y)}")
 
+    def browse_folder(self):
+        global base_folder_path
+        base_folder_path = filedialog.askdirectory()
+        self.property_name_entry.delete(0, tk.END)
+        self.property_name_entry.insert(0, base_folder_path)
+
     def create_folder(self):
         global folder_path
         property_name = self.property_name_entry.get()
-        folder_path = f"Z:\\{property_name}"
+        folder_path = os.path.join(base_folder_path, property_name)
         os.makedirs(folder_path, exist_ok=True)
         response = messagebox.askyesno("Folder created", "Folder created. Do you want to process images?")
         self.create_folder_callback(response)
