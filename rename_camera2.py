@@ -122,7 +122,7 @@ class App(ctk.CTk):
 
     def _process_images_thread(self):
         self.progressbar.set(0)
-        camera_path = "E:\\"
+        camera_path = "Canon EOS 250D"
         image_files = glob.glob(camera_path + "**/*.jpg", recursive=True)
 
         for counter, image_file in enumerate(image_files, 1):
@@ -154,7 +154,7 @@ class App(ctk.CTk):
                 messagebox.showerror("Error", "No folder has been created yet.")
 
     def delete_sd_files(self):
-        sd_card_path = "E:\\"
+        sd_card_path = "Canon EOS 250D"
         response = messagebox.askyesno("Delete SD Files", f"Are you sure you want to delete all files from the SD card at {sd_card_path}?")
         if response:
             response = messagebox.askyesno("Last Chance", "Last chance! Are you absolutely sure you want to delete all files from the SD card?")
