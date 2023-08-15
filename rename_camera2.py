@@ -133,14 +133,18 @@ class App(ctk.CTk):
                     processed_img = img  # Replace this line with your image processing code
 
                     # Save the processed image to the Z:\\ drive
-                    processed_img.save(os.path.join(folder_path, os.path.basename(image_file)))
+                    new_file_name = os.path.join(folder_path, f"{os.path.basename(folder_path)}_{datetime.date.today().strftime('%Y%m%d')}_{os.path.basename(image_file)}")
+                    processed_img.save(new_file_name)
 
-                # Update the progress bar
+                # Update the progress bar and status label
                 self.progressbar.set(counter / len(image_files))
+                self.status_label.config(text=f"Processing {counter}/{len(image_files)}: {new_file_name}")
             except Exception as e:
                 print(f"Error processing image {image_file}: {e}")
+                self.status_label.config(text=f"Error processing image {image_file}: {e}")
 
         print("All images processed.")
+        self.status_label.config(text="All images processed.")
         response = messagebox.askyesno("Images copied", "Images copied. Do you want to open the location?")
         if response:
             self.open_location_callback(True)  # Open the location
