@@ -58,7 +58,7 @@ class App(ctk.CTk):
         self.create_folder_button = ctk.CTkButton(self, text="Create Folder", command=self.create_folder, state="normal")
         self.create_folder_button.grid(row=0, column=3, padx=20, pady=10, sticky="ew")
         self.delete_sd_files_button = ctk.CTkButton(self, text="Delete SD Files", command=self.delete_sd_files, state="normal")
-        self.delete_sd_files_button.grid(row=0, column=3, padx=20, pady=10, sticky="ew")
+        self.delete_sd_files_button.grid(row=0, column=4, padx=20, pady=10, sticky="ew")
 
         self.process_images_button = ctk.CTkButton(self, text="Process Images", command=self.process_images)
         self.process_images_button.grid(row=1, column=0, columnspan=4, padx=20, pady=10, sticky="ew")
