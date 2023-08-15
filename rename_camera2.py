@@ -41,8 +41,8 @@ class App(ctk.CTk):
         super().__init__()
         global folder_path
 
-        self.title("Property Image Processor")
-        self.geometry("1000x250")
+        self.title("Maher Property Image Processor")
+        self.geometry("1200x250")
         self.update_idletasks()
         self.center_window()
 
