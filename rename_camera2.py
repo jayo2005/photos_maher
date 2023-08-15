@@ -75,7 +75,7 @@ class App(ctk.CTk):
         img = img.resize((400, 200), Image.LANCZOS)  # Resize the image to 500x500 pixels
         self.logo_image = CTkImage(img)
         self.logo_label = ctk.CTkLabel(self, image=self.logo_image)
-        self.logo_label.grid(row=4, column=0, columnspan=4, padx=20, pady=10, sticky="ew")
+        self.logo_label.grid(row=4, column=0, columnspan=4, padx=20, pady=10)
 
     def center_window(self):
         # Get screen width and height
