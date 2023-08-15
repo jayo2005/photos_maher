@@ -69,7 +69,10 @@ class App(ctk.CTk):
         self.status_label = ctk.CTkLabel(self, text="")
         self.status_label.grid(row=3, column=0, columnspan=4, padx=20, pady=10, sticky="ew")
 
-        self.logo_image = tk.PhotoImage(file="maher.png")
+        from PIL import Image
+        img = Image.open("maher.png")
+        img = img.resize((500, 500), Image.ANTIALIAS)  # Resize the image to 500x500 pixels
+        self.logo_image = ImageTk.PhotoImage(img)
         self.logo_label = ctk.CTkLabel(self, image=self.logo_image)
         self.logo_label.grid(row=4, column=0, columnspan=4, padx=20, pady=10, sticky="ew")
 
