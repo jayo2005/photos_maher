@@ -42,7 +42,7 @@ class App(ctk.CTk):
         global folder_path
 
         self.title("Maher Property Image Processor")
-        self.geometry("1200x250")
+        self.geometry("1200x400")
         self.update_idletasks()
         self.center_window()
 
