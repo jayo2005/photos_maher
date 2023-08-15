@@ -122,8 +122,12 @@ class App(ctk.CTk):
             self.open_location_callback(True)  # Open the location
 
     def open_location_callback(self, response):
+        global folder_path
         if response:
-            os.startfile(folder_path)
+            if 'folder_path' in globals():
+                os.startfile(folder_path)
+            else:
+                messagebox.showerror("Error", "No folder has been created yet.")
 
     def delete_sd_files(self):
         sd_card_path = "E:\\"
