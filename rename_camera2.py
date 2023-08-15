@@ -138,13 +138,13 @@ class App(ctk.CTk):
 
                 # Update the progress bar and status label
                 self.progressbar.set(counter / len(image_files))
-                self.status_label.config(text=f"Processing {counter}/{len(image_files)}: {new_file_name}")
+                self.status_label.configure(text=f"Processing {counter}/{len(image_files)}: {new_file_name}")
             except Exception as e:
                 print(f"Error processing image {image_file}: {e}")
-                self.status_label.config(text=f"Error processing image {image_file}: {e}")
+                self.status_label.configure(text=f"Error processing image {image_file}: {e}")
 
         print("All images processed.")
-        self.status_label.config(text="All images processed.")
+        self.status_label.configure(text="All images processed.")
         response = messagebox.askyesno("Images copied", "Images copied. Do you want to open the location?")
         if response:
             self.open_location_callback(True)  # Open the location
