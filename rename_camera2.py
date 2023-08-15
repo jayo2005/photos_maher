@@ -69,6 +69,10 @@ class App(ctk.CTk):
         self.status_label = ctk.CTkLabel(self, text="")
         self.status_label.grid(row=3, column=0, columnspan=4, padx=20, pady=10, sticky="ew")
 
+        self.logo_image = tk.PhotoImage(file="maher.png")
+        self.logo_label = ctk.CTkLabel(self, image=self.logo_image)
+        self.logo_label.grid(row=4, column=0, columnspan=4, padx=20, pady=10, sticky="ew")
+
     def center_window(self):
         # Get screen width and height
         screen_width = self.winfo_screenwidth()
