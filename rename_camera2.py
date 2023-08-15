@@ -133,7 +133,7 @@ class App(ctk.CTk):
                     processed_img = img  # Replace this line with your image processing code
 
                     # Save the processed image to the Z:\\ drive
-                    new_file_name = os.path.join(folder_path, f"{os.path.basename(folder_path)}_{datetime.date.today().strftime('%Y%m%d')}_{os.path.basename(image_file)}")
+                    new_file_name = os.path.join(folder_path, f"{os.path.basename(folder_path)}_{datetime.date.today().strftime('%d-%m-%Y')}_{os.path.basename(image_file)}")
                     processed_img.save(new_file_name)
 
                 # Update the progress bar and status label
