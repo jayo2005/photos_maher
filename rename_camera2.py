@@ -93,7 +93,13 @@ class App(ctk.CTk):
 
         for counter, image_file in enumerate(image_files, 1):
             try:
-                # ... (image processing code)
+                # Open the image file
+                with Image.open(image_file) as img:
+                    # Process the image (this is a placeholder, replace with your image processing code)
+                    processed_img = img  # Replace this line with your image processing code
+
+                    # Save the processed image to the Z:\\ drive
+                    processed_img.save(os.path.join(folder_path, os.path.basename(image_file)))
 
                 # Update the progress bar
                 self.progressbar.set(counter / len(image_files))
