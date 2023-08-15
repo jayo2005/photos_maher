@@ -97,7 +97,11 @@ class App(ctk.CTk):
             self.process_images()
 
     def process_images(self):
-        threading.Thread(target=self._process_images_thread, daemon=True).start()
+        global folder_path
+        if folder_path is None:
+            messagebox.showerror("Error", "Please select a folder first.")
+        else:
+            threading.Thread(target=self._process_images_thread, daemon=True).start()
 
     def _process_images_thread(self):
         self.progressbar.set(0)
