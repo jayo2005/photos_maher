@@ -71,7 +71,7 @@ class App(ctk.CTk):
 
         from PIL import Image
         img = Image.open("maher.png")
-        img = img.resize((500, 500), Image.ANTIALIAS)  # Resize the image to 500x500 pixels
+        img = img.resize((500, 500), Image.LANCZOS)  # Resize the image to 500x500 pixels
         self.logo_image = ImageTk.PhotoImage(img)
         self.logo_label = ctk.CTkLabel(self, image=self.logo_image)
         self.logo_label.grid(row=4, column=0, columnspan=4, padx=20, pady=10, sticky="ew")
