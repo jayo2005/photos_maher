@@ -83,7 +83,7 @@ class App(ctk.CTk):
         base_folder_path = filedialog.askdirectory(initialdir="Z:\\")
         self.property_name_entry.delete(0, tk.END)
         self.property_name_entry.insert(0, base_folder_path)
-        self.create_folder_button['state'] = "normal"
+        self.create_folder()
 
     def create_folder(self):
         global base_folder_path, folder_path
