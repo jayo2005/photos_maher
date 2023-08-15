@@ -55,7 +55,7 @@ class App(ctk.CTk):
         self.browse_button = ctk.CTkButton(self, text="Browse", command=self.browse_folder)
         self.browse_button.grid(row=0, column=2, padx=20, pady=10, sticky="ew")
 
-        self.create_folder_button = ctk.CTkButton(self, text="Create Folder", command=self.create_folder)
+        self.create_folder_button = ctk.CTkButton(self, text="Create Folder", command=self.create_folder, state="disabled")
         self.create_folder_button.grid(row=0, column=3, padx=20, pady=10, sticky="ew")
         self.delete_sd_files_button = ctk.CTkButton(self, text="Delete SD Files", command=self.delete_sd_files)
         self.delete_sd_files_button.grid(row=0, column=3, padx=20, pady=10, sticky="ew")
@@ -83,6 +83,7 @@ class App(ctk.CTk):
         base_folder_path = filedialog.askdirectory(initialdir="Z:\\")
         self.property_name_entry.delete(0, tk.END)
         self.property_name_entry.insert(0, base_folder_path)
+        self.create_folder_button['state'] = "normal"
 
     def create_folder(self):
         global base_folder_path, folder_path
