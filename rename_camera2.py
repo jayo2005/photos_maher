@@ -122,7 +122,7 @@ class App(ctk.CTk):
 
     def _process_images_thread(self):
         self.progressbar.set(0)
-        camera_path = "Canon EOS 250D"
+        camera_path = "C:\\Property_Images"
         image_files = glob.glob(camera_path + "**/*.jpg", recursive=True)
 
         for counter, image_file in enumerate(image_files, 1):
@@ -154,10 +154,10 @@ class App(ctk.CTk):
                 messagebox.showerror("Error", "No folder has been created yet.")
 
     def delete_sd_files(self):
-        sd_card_path = "Canon EOS 250D"
-        response = messagebox.askyesno("Delete SD Files", f"Are you sure you want to delete all files from the SD card at {sd_card_path}?")
+        sd_card_path = "C:\\Property_Images"
+        response = messagebox.askyesno("Delete SD Files", f"Are you sure you want to delete all files from the folder at {sd_card_path}?")
         if response:
-            response = messagebox.askyesno("Last Chance", "Last chance! Are you absolutely sure you want to delete all files from the SD card?")
+            response = messagebox.askyesno("Last Chance", "Last chance! Are you absolutely sure you want to delete all files from the folder?")
             if response:
                 threading.Thread(target=self._delete_sd_files_thread, args=(sd_card_path,), daemon=True).start()
 
@@ -167,7 +167,7 @@ class App(ctk.CTk):
                 os.remove(os.path.join(root, name))
             for name in dirs:
                 os.rmdir(os.path.join(root, name))
-        messagebox.showinfo("Files Deleted", "All files and folders have been deleted from the SD card.")
+        messagebox.showinfo("Files Deleted", "All files and folders have been deleted from the folder.")
 
 app = App()
 app.mainloop()
