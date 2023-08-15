@@ -90,10 +90,13 @@ class App(ctk.CTk):
             messagebox.showerror("Error", "Please browse for a base folder first.")
         else:
             property_name = self.property_name_entry.get()
-            folder_path = os.path.join(base_folder_path, property_name)
-            os.makedirs(folder_path, exist_ok=True)
-            response = messagebox.askyesno("Folder created", "Folder created. Do you want to process images?")
-            self.create_folder_callback(response)
+            if not property_name:
+                messagebox.showerror("Error", "Please enter a property name.")
+            else:
+                folder_path = os.path.join(base_folder_path, property_name)
+                os.makedirs(folder_path, exist_ok=True)
+                response = messagebox.askyesno("Folder created", "Folder created. Do you want to process images?")
+                self.create_folder_callback(response)
 
     def create_folder_callback(self, response):
         if response:
