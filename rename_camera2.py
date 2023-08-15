@@ -34,9 +34,12 @@ class CustomPopup(ctk.CTkToplevel):
         self.callback(value)
         self.destroy()
 
+folder_path = None
+
 class App(ctk.CTk):
     def __init__(self):
         super().__init__()
+        global folder_path
 
         self.title("Property Image Processor")
         self.geometry("1000x250")
@@ -82,7 +85,7 @@ class App(ctk.CTk):
         self.property_name_entry.insert(0, base_folder_path)
 
     def create_folder(self):
-        global folder_path
+        global base_folder_path, folder_path
         property_name = self.property_name_entry.get()
         folder_path = os.path.join(base_folder_path, property_name)
         os.makedirs(folder_path, exist_ok=True)
