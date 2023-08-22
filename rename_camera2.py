@@ -59,7 +59,7 @@ class App(ctk.CTk):
 
         self.create_folder_button = ctk.CTkButton(self, text="Create Folder", command=self.create_folder, state="normal")
         self.create_folder_button.grid(row=0, column=3, padx=20, pady=10, sticky="ew")
-        self.delete_sd_files_button = ctk.CTkButton(self, text="Delete SD Files", command=self.delete_sd_files, state="normal")
+        self.delete_sd_files_button = ctk.CTkButton(self, text="Delete Photos", command=self.delete_sd_files, state="normal")
         self.delete_sd_files_button.grid(row=0, column=4, padx=20, pady=10, sticky="ew")
 
         self.process_images_button = ctk.CTkButton(self, text="Process Images", command=self.process_images)
@@ -159,7 +159,7 @@ class App(ctk.CTk):
 
     def delete_sd_files(self):
         sd_card_path = "C:\\Property_Images"
-        response = messagebox.askyesno("Delete SD Files", f"Are you sure you want to delete all files from the folder at {sd_card_path}?")
+        response = messagebox.askyesno("Delete Photos", f"Are you sure you want to delete all files from the folder at {sd_card_path}?")
         if response:
             response = messagebox.askyesno("Last Chance", "Last chance! Are you absolutely sure you want to delete all files from the folder?")
             if response:
