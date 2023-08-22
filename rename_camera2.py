@@ -62,9 +62,6 @@ class App(ctk.CTk):
         self.delete_sd_files_button = ctk.CTkButton(self, text="Delete Photos", command=self.delete_sd_files, state="normal")
         self.delete_sd_files_button.grid(row=0, column=4, padx=20, pady=10, sticky="ew")
 
-        self.danny_button = ctk.CTkButton(self, text="Danny", command=self.danny_function)
-        self.danny_button.grid(row=0, column=5, padx=20, pady=10, sticky="ew")
-
         self.process_images_button = ctk.CTkButton(self, text="Process Images", command=self.process_images)
         self.process_images_button.grid(row=1, column=0, columnspan=4, padx=20, pady=10, sticky="ew")
 
@@ -151,9 +148,6 @@ class App(ctk.CTk):
         response = messagebox.askyesno("Images copied", "Images copied. Do you want to open the location?")
         if response:
             self.open_location_callback(True)  # Open the location
-
-    def danny_function(self):
-        print("Danny button clicked!")
 
     def open_location_callback(self, response):
         global folder_path
